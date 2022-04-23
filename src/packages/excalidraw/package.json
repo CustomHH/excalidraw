@@ -1,6 +1,6 @@
 {
   "name": "custom-excalidraw-hruthik",
-  "version": "0.1.6",
+  "version": "1.0.0",
   "main": "main.js",
   "types": "types/packages/excalidraw/index.d.ts",
   "files": [

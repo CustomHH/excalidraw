@@ -8,7 +8,8 @@ import { NonDeletedExcalidrawElement } from "../element/types";
 import { FixedSideContainer } from "./FixedSideContainer";
 import { Island } from "./Island";
 import { HintViewer } from "./HintViewer";
-import { calculateScrollCenter, getSelectedElements } from "../scene";
+// import { calculateScrollCenter, getSelectedElements } from "../scene";
+import { calculateScrollCenter } from "../scene";
 import { SelectedShapeActions, ShapesSwitcher } from "./Actions";
 import { Section } from "./Section";
 import CollabButton from "./CollabButton";
@@ -16,7 +17,7 @@ import { SCROLLBAR_WIDTH, SCROLLBAR_MARGIN } from "../scene/scrollbars";
 import { LockButton } from "./LockButton";
 import { UserList } from "./UserList";
 import { BackgroundPickerAndDarkModeToggle } from "./BackgroundPickerAndDarkModeToggle";
-import { LibraryButton } from "./LibraryButton";
+// import { LibraryButton } from "./LibraryButton";
 import { PenModeButton } from "./PenModeButton";
 
 type MobileMenuProps = {
@@ -82,6 +83,7 @@ export const MobileMenu = ({
                         });
                       }}
                     />
+                    {actionManager.renderAction("clearCanvas")}
                   </Stack.Row>
                 </Island>
                 {renderTopRightUI && renderTopRightUI(true, appState)}
@@ -91,11 +93,11 @@ export const MobileMenu = ({
                   title={t("toolBar.lock")}
                   isMobile
                 />
-                <LibraryButton
+                {/* <LibraryButton
                   appState={appState}
                   setAppState={setAppState}
                   isMobile
-                />
+                /> */}
                 <PenModeButton
                   checked={appState.penMode}
                   onChange={onPenModeToggle}
@@ -115,10 +117,10 @@ export const MobileMenu = ({
 
   const renderAppToolbar = () => {
     // Render eraser conditionally in mobile
-    const showEraser =
-      !appState.viewModeEnabled &&
-      !appState.editingElement &&
-      getSelectedElements(elements, appState).length === 0;
+    // const showEraser =
+    //   !appState.viewModeEnabled &&
+    //   !appState.editingElement &&
+    //   getSelectedElements(elements, appState).length === 0;
 
     if (viewModeEnabled) {
       return (
@@ -129,19 +131,20 @@ export const MobileMenu = ({
     }
 
     return (
-      <div className="App-toolbar-content">
-        {actionManager.renderAction("toggleCanvasMenu")}
-        {actionManager.renderAction("toggleEditMenu")}
+      <></>
+      // <div className="App-toolbar-content">
+      //   {actionManager.renderAction("toggleCanvasMenu")}
+      //   {actionManager.renderAction("toggleEditMenu")}
 
-        {actionManager.renderAction("undo")}
-        {actionManager.renderAction("redo")}
-        {showEraser && actionManager.renderAction("eraser")}
+      //   {actionManager.renderAction("undo")}
+      //   {actionManager.renderAction("redo")}
+      //   {showEraser && actionManager.renderAction("eraser")}
 
-        {actionManager.renderAction(
-          appState.multiElement ? "finalize" : "duplicateSelection",
-        )}
-        {actionManager.renderAction("deleteSelectedElements")}
-      </div>
+      //   {actionManager.renderAction(
+      //     appState.multiElement ? "finalize" : "duplicateSelection",
+      //   )}
+      //   {actionManager.renderAction("deleteSelectedElements")}
+      // </div>
     );
   };
 

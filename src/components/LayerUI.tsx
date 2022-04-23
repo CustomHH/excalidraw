@@ -11,8 +11,8 @@ import { ExportType } from "../scene/types";
 import { AppProps, AppState, ExcalidrawProps, BinaryFiles } from "../types";
 import { muteFSAbortError } from "../utils";
 import { SelectedShapeActions, ShapesSwitcher, ZoomActions } from "./Actions";
-import { BackgroundPickerAndDarkModeToggle } from "./BackgroundPickerAndDarkModeToggle";
-import CollabButton from "./CollabButton";
+// import { BackgroundPickerAndDarkModeToggle } from "./BackgroundPickerAndDarkModeToggle";
+// import CollabButton from "./CollabButton";
 import { ErrorDialog } from "./ErrorDialog";
 import { ExportCB, ImageExportDialog } from "./ImageExportDialog";
 import { FixedSideContainer } from "./FixedSideContainer";
@@ -29,7 +29,7 @@ import { Tooltip } from "./Tooltip";
 import { UserList } from "./UserList";
 import Library from "../data/library";
 import { JSONExportDialog } from "./JSONExportDialog";
-import { LibraryButton } from "./LibraryButton";
+// import { LibraryButton } from "./LibraryButton";
 import { isImageFileHandle } from "../data/blob";
 import { LibraryMenu } from "./LibraryMenu";
 
@@ -163,9 +163,9 @@ const LayerUI = ({
     );
   };
 
-  const Separator = () => {
-    return <div style={{ width: ".625em" }} />;
-  };
+  // const Separator = () => {
+  //   return <div style={{ width: ".625em" }} />;
+  // };
 
   const renderViewModeCanvasActions = () => {
     return (
@@ -190,43 +190,44 @@ const LayerUI = ({
   };
 
   const renderCanvasActions = () => (
-    <Section
-      heading="canvasActions"
-      className={clsx("zen-mode-transition", {
-        "transition-left": zenModeEnabled,
-      })}
-    >
-      {/* the zIndex ensures this menu has higher stacking order,
-         see https://github.com/excalidraw/excalidraw/pull/1445 */}
-      <Island padding={2} style={{ zIndex: 1 }}>
-        <Stack.Col gap={4}>
-          <Stack.Row gap={1} justifyContent="space-between">
-            {actionManager.renderAction("clearCanvas")}
-            <Separator />
-            {actionManager.renderAction("loadScene")}
-            {renderJSONExportDialog()}
-            {renderImageExportDialog()}
-            <Separator />
-            {onCollabButtonClick && (
-              <CollabButton
-                isCollaborating={isCollaborating}
-                collaboratorCount={appState.collaborators.size}
-                onClick={onCollabButtonClick}
-              />
-            )}
-          </Stack.Row>
-          <BackgroundPickerAndDarkModeToggle
-            actionManager={actionManager}
-            appState={appState}
-            setAppState={setAppState}
-            showThemeBtn={showThemeBtn}
-          />
-          {appState.fileHandle && (
-            <>{actionManager.renderAction("saveToActiveFile")}</>
-          )}
-        </Stack.Col>
-      </Island>
-    </Section>
+    <></>
+    // <Section
+    //   heading="canvasActions"
+    //   className={clsx("zen-mode-transition", {
+    //     "transition-left": zenModeEnabled,
+    //   })}
+    // >
+    //   {/* the zIndex ensures this menu has higher stacking order,
+    //      see https://github.com/excalidraw/excalidraw/pull/1445 */}
+    //   <Island padding={2} style={{ zIndex: 1 }}>
+    //     <Stack.Col gap={4}>
+    //       <Stack.Row gap={1} justifyContent="space-between">
+    //         {actionManager.renderAction("clearCanvas")}
+    //         <Separator />
+    //         {actionManager.renderAction("loadScene")}
+    //         {renderJSONExportDialog()}
+    //         {renderImageExportDialog()}
+    //         <Separator />
+    //         {onCollabButtonClick && (
+    //           <CollabButton
+    //             isCollaborating={isCollaborating}
+    //             collaboratorCount={appState.collaborators.size}
+    //             onClick={onCollabButtonClick}
+    //           />
+    //         )}
+    //       </Stack.Row>
+    //       <BackgroundPickerAndDarkModeToggle
+    //         actionManager={actionManager}
+    //         appState={appState}
+    //         setAppState={setAppState}
+    //         showThemeBtn={showThemeBtn}
+    //       />
+    //       {appState.fileHandle && (
+    //         <>{actionManager.renderAction("saveToActiveFile")}</>
+    //       )}
+    //     </Stack.Col>
+    //   </Island>
+    // </Section>
   );
 
   const renderSelectedShapeActions = () => (
@@ -355,12 +356,13 @@ const LayerUI = ({
                             });
                           }}
                         />
+                        {actionManager.renderAction("clearCanvas")}
                       </Stack.Row>
                     </Island>
-                    <LibraryButton
+                    {/* <LibraryButton
                       appState={appState}
                       setAppState={setAppState}
-                    />
+                    /> */}
                   </Stack.Row>
                   {libraryMenu}
                 </Stack.Col>

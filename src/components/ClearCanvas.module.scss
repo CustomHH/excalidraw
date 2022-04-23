@@ -1,0 +1,66 @@
+.dialog {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  width: 25rem;
+  height: 13rem;
+  padding: 1.5rem;
+  background-color: #111827;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  z-index: 6000;
+  border-radius: 0.8rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.headerText {
+  color: #fff;
+  font-size: 2.5rem;
+  font-family: "Roboto", sans-serif;
+}
+
+.closeButton {
+  color: #fff;
+  font-size: 2.5rem;
+  background-color: transparent !important;
+  font-family: "Roboto", sans-serif !important;
+}
+
+.bodyText {
+  color: #fff;
+  font-size: 2rem;
+  font-family: "Roboto", sans-serif;
+  text-align: left;
+  flex: 2;
+}
+
+.buttonContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+
+  button {
+    padding: 0.6rem 3rem !important;
+    font-size: 2rem;
+    color: #fff;
+    border-radius: 1.5rem !important;
+  }
+}
+
+.cancel {
+  border: 1px solid #fff !important;
+  background-color: transparent !important;
+}
+
+.confirm {
+  background-color: #1c65c3 !important;
+}

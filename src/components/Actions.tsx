@@ -204,6 +204,10 @@ export const ShapesSwitcher = ({
       const shortcut = letter
         ? `${capitalizeString(letter)} ${t("helpDialog.or")} ${index + 1}`
         : `${index + 1}`;
+
+      if (value === "image") {
+        return <React.Fragment key={value}></React.Fragment>;
+      }
       return (
         <ToolButton
           className="Shape"
@@ -239,9 +243,9 @@ export const ShapesSwitcher = ({
               ...appState,
               activeTool: nextActiveTool,
             });
-            if (value === "image") {
-              onImageAction({ pointerType });
-            }
+            // if (value === "image") {
+            //   onImageAction({ pointerType });
+            // }
           }}
         />
       );

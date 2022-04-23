@@ -12,21 +12,34 @@ interface ClearCanvasDialogProps {
 
 const ClearCanvasDialog = ({ onConfirm, onCancel }: ClearCanvasDialogProps) => {
   return (
-    <div className={classes.dialog}>
-      <div className={classes.header}>
-        <span className={classes.headerText}>Clear Canvas</span>
-        <button className={classes.closeButton} onClick={onCancel}>
+    <div className={`ClearCanvasDialog ${classes.dialog}`}>
+      <div className={`ClearCanvasDialog__header ${classes.header}`}>
+        <span className={`ClearCanvasDialog__headerText ${classes.headerText}`}>
+          Clear Canvas
+        </span>
+        <button
+          className={`ClearCanvasDialog__closeButton ${classes.closeButton}`}
+          onClick={onCancel}
+        >
           X
         </button>
       </div>
-      <span className={classes.bodyText}>
+      <span className={`ClearCanvasDialog__bodyText ${classes.bodyText}`}>
         This will clear the whole canvas. Are you sure?
       </span>
-      <div className={classes.buttonContainer}>
-        <button className={classes.cancel} onClick={onCancel}>
+      <div
+        className={`ClearCanvasDialog__buttonContainer ${classes.buttonContainer}`}
+      >
+        <button
+          className={`ClearCanvasDialog__cancel ${classes.cancel}`}
+          onClick={onCancel}
+        >
           Cancel
         </button>
-        <button className={classes.confirm} onClick={onConfirm}>
+        <button
+          className={`ClearCanvasDialog__confirm ${classes.confirm}`}
+          onClick={onConfirm}
+        >
           Confirm
         </button>
       </div>

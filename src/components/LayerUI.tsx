@@ -356,6 +356,8 @@ const LayerUI = ({
                             });
                           }}
                         />
+                        {actionManager.renderAction("undo")}
+                        {actionManager.renderAction("redo")}
                         {actionManager.renderAction("clearCanvas")}
                       </Stack.Row>
                     </Island>
@@ -430,8 +432,8 @@ const LayerUI = ({
                         zenModeEnabled,
                     })}
                   >
-                    {actionManager.renderAction("undo", { size: "small" })}
-                    {actionManager.renderAction("redo", { size: "small" })}
+                    {/* {actionManager.renderAction("undo", { size: "small" })}
+                    {actionManager.renderAction("redo", { size: "small" })} */}
                   </div>
 
                   <div

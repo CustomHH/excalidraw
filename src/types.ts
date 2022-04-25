@@ -268,6 +268,7 @@ export interface ExcalidrawProps {
       nativeEvent: MouseEvent | React.PointerEvent<HTMLCanvasElement>;
     }>,
   ) => void;
+  showPopup: () => void;
 }
 
 export type SceneData = {

@@ -37,6 +37,7 @@ const ExcalidrawBase = (props: ExcalidrawProps) => {
     autoFocus = false,
     generateIdForFile,
     onLinkOpen,
+    showPopup,
   } = props;
 
   const canvasActions = props.UIOptions?.canvasActions;
@@ -100,6 +101,7 @@ const ExcalidrawBase = (props: ExcalidrawProps) => {
           autoFocus={autoFocus}
           generateIdForFile={generateIdForFile}
           onLinkOpen={onLinkOpen}
+          showPopup={showPopup}
         />
       </Provider>
     </InitializeApp>

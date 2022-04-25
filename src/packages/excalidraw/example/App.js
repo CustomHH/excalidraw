@@ -141,6 +141,10 @@ export default function App() {
     }
   }, []);
 
+  const showPopup = () => {
+    // console.log("showPopup");
+  };
+
   return (
     <div className="App">
       <h1> Excalidraw Example</h1>
@@ -234,6 +238,7 @@ export default function App() {
             renderTopRightUI={renderTopRightUI}
             renderFooter={renderFooter}
             onLinkOpen={onLinkOpen}
+            showPopup={showPopup}
           />
         </div>
 

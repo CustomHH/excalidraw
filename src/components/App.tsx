@@ -339,6 +339,7 @@ class App extends React.Component<AppProps, AppState> {
       gridModeEnabled = false,
       theme = defaultAppState.theme,
       name = defaultAppState.name,
+      showPopup,
     } = props;
     this.state = {
       ...defaultAppState,
@@ -401,6 +402,7 @@ class App extends React.Component<AppProps, AppState> {
       () => this.state,
       () => this.scene.getElementsIncludingDeleted(),
       this,
+      showPopup,
     );
     this.actionManager.registerAll(actions);
 

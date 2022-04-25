@@ -78,7 +78,9 @@ export const actionClearCanvas = register({
     };
   },
 
-  PanelComponent: ({ updateData }) => <ClearCanvas onConfirm={updateData} />,
+  PanelComponent: ({ updateData, showPopup }) => (
+    <ClearCanvas onConfirm={updateData} showPopup={showPopup} />
+  ),
 });
 
 export const actionZoomIn = register({

@@ -48,12 +48,14 @@ export class ActionManager {
   getAppState: () => Readonly<AppState>;
   getElementsIncludingDeleted: () => readonly ExcalidrawElement[];
   app: AppClassProperties;
+  showPopup: () => void;
 
   constructor(
     updater: UpdaterFn,
     getAppState: () => AppState,
     getElementsIncludingDeleted: () => readonly ExcalidrawElement[],
     app: AppClassProperties,
+    showPopup: () => void,
   ) {
     this.updater = (actionResult) => {
       if (actionResult && "then" in actionResult) {
@@ -67,6 +69,7 @@ export class ActionManager {
     this.getAppState = getAppState;
     this.getElementsIncludingDeleted = getElementsIncludingDeleted;
     this.app = app;
+    this.showPopup = showPopup;
   }
 
   registerAction(action: Action) {
@@ -169,6 +172,7 @@ export class ActionManager {
           updateData={updateData}
           appProps={this.app.props}
           data={data}
+          showPopup={this.showPopup}
         />
       );
     }

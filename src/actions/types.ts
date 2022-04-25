@@ -118,6 +118,7 @@ export type PanelComponentProps = {
   elements: readonly ExcalidrawElement[];
   appState: AppState;
   updateData: (formData?: any) => void;
+  showPopup: () => void;
   appProps: ExcalidrawProps;
   data?: Partial<{ id: string; size: ToolButtonSize }>;
 };

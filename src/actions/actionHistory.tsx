@@ -5,7 +5,7 @@ import { t } from "../i18n";
 import History, { HistoryEntry } from "../history";
 import { ExcalidrawElement } from "../element/types";
 import { AppState } from "../types";
-import { isWindows, KEYS } from "../keys";
+// import { isWindows, KEYS } from "../keys";
 import { newElementWith } from "../element/mutateElement";
 import { fixBindingsAfterDeletion } from "../element/binding";
 import { arrayToMap } from "../utils";
@@ -65,10 +65,10 @@ export const createUndoAction: ActionCreator = (history) => ({
   trackEvent: { category: "history" },
   perform: (elements, appState) =>
     writeData(elements, appState, () => history.undoOnce()),
-  keyTest: (event) =>
-    event[KEYS.CTRL_OR_CMD] &&
-    event.key.toLowerCase() === KEYS.Z &&
-    !event.shiftKey,
+  // keyTest: (event) =>
+  //   event[KEYS.CTRL_OR_CMD] &&
+  //   event.key.toLowerCase() === KEYS.Z &&
+  //   !event.shiftKey,
   PanelComponent: ({ updateData, data }) => (
     <ToolButton
       type="button"
@@ -86,11 +86,11 @@ export const createRedoAction: ActionCreator = (history) => ({
   trackEvent: { category: "history" },
   perform: (elements, appState) =>
     writeData(elements, appState, () => history.redoOnce()),
-  keyTest: (event) =>
-    (event[KEYS.CTRL_OR_CMD] &&
-      event.shiftKey &&
-      event.key.toLowerCase() === KEYS.Z) ||
-    (isWindows && event.ctrlKey && !event.shiftKey && event.key === KEYS.Y),
+  // keyTest: (event) =>
+  //   (event[KEYS.CTRL_OR_CMD] &&
+  //     event.shiftKey &&
+  //     event.key.toLowerCase() === KEYS.Z) ||
+  //   (isWindows && event.ctrlKey && !event.shiftKey && event.key === KEYS.Y),
   PanelComponent: ({ updateData, data }) => (
     <ToolButton
       type="button"

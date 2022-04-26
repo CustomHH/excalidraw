@@ -1,4 +1,5 @@
 import React from "react";
+import clsx from "clsx";
 import { AppState } from "../types";
 import { ActionManager } from "../actions/manager";
 import { t } from "../i18n";
@@ -10,7 +11,7 @@ import { Island } from "./Island";
 import { HintViewer } from "./HintViewer";
 // import { calculateScrollCenter, getSelectedElements } from "../scene";
 import { calculateScrollCenter } from "../scene";
-import { SelectedShapeActions, ShapesSwitcher } from "./Actions";
+import { SelectedShapeActions, ShapesSwitcher, ZoomActions } from "./Actions";
 import { Section } from "./Section";
 import CollabButton from "./CollabButton";
 import { SCROLLBAR_WIDTH, SCROLLBAR_MARGIN } from "../scene/scrollbars";
@@ -69,6 +70,11 @@ export const MobileMenu = ({
           {(heading) => (
             <Stack.Col gap={4} align="center">
               <Stack.Row gap={1} className="App-toolbar-container">
+                <LockButton
+                  checked={appState.activeTool.locked}
+                  onChange={onLockToggle}
+                  title={t("toolBar.lock")}
+                />
                 <Island padding={1} className="App-toolbar">
                   {heading}
                   <Stack.Row gap={1}>
@@ -87,12 +93,12 @@ export const MobileMenu = ({
                   </Stack.Row>
                 </Island>
                 {renderTopRightUI && renderTopRightUI(true, appState)}
-                <LockButton
+                {/* <LockButton
                   checked={appState.activeTool.locked}
                   onChange={onLockToggle}
                   title={t("toolBar.lock")}
                   isMobile
-                />
+                /> */}
                 {/* <LibraryButton
                   appState={appState}
                   setAppState={setAppState}
@@ -131,14 +137,32 @@ export const MobileMenu = ({
     }
 
     return (
-      <></>
+      <footer
+        role="contentinfo"
+        className="layer-ui__wrapper__footer App-menu App-menu_bottom"
+      >
+        <div
+          className={clsx("layer-ui__wrapper__footer-left zen-mode-transition")}
+        >
+          <Stack.Col gap={2}>
+            <Section heading="canvasActions">
+              <Island padding={1}>
+                <ZoomActions
+                  renderAction={actionManager.renderAction}
+                  zoom={appState.zoom}
+                />
+              </Island>
+            </Section>
+          </Stack.Col>
+        </div>
+      </footer>
       // <div className="App-toolbar-content">
       //   {actionManager.renderAction("toggleCanvasMenu")}
       //   {actionManager.renderAction("toggleEditMenu")}
 
       //   {actionManager.renderAction("undo")}
       //   {actionManager.renderAction("redo")}
-      //   {showEraser && actionManager.renderAction("eraser")}
+      //   {/* {showEraser && actionManager.renderAction("eraser")} */}
 
       //   {actionManager.renderAction(
       //     appState.multiElement ? "finalize" : "duplicateSelection",

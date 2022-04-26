@@ -356,8 +356,6 @@ const LayerUI = ({
                             });
                           }}
                         />
-                        {actionManager.renderAction("undo")}
-                        {actionManager.renderAction("redo")}
                         {actionManager.renderAction("clearCanvas")}
                       </Stack.Row>
                     </Island>

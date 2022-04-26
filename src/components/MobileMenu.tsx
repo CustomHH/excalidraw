@@ -142,7 +142,9 @@ export const MobileMenu = ({
         className="layer-ui__wrapper__footer App-menu App-menu_bottom"
       >
         <div
-          className={clsx("layer-ui__wrapper__footer-left zen-mode-transition")}
+          className={clsx("undo-redo-buttons zen-mode-transition", {
+            "layer-ui__wrapper__footer-left--transition-bottom": false,
+          })}
         >
           <Stack.Col gap={2}>
             <Section heading="canvasActions">
@@ -211,8 +213,9 @@ export const MobileMenu = ({
       <div
         className="App-bottom-bar"
         style={{
-          marginBottom: SCROLLBAR_WIDTH + SCROLLBAR_MARGIN * 2,
-          marginLeft: SCROLLBAR_WIDTH + SCROLLBAR_MARGIN * 2,
+          // marginBottom: SCROLLBAR_WIDTH + SCROLLBAR_MARGIN * 2,
+          // marginLeft: SCROLLBAR_WIDTH + SCROLLBAR_MARGIN * 2,
+          marginBottom: "0.2em",
           marginRight: SCROLLBAR_WIDTH + SCROLLBAR_MARGIN * 2,
         }}
       >

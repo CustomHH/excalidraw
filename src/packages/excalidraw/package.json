@@ -1,6 +1,6 @@
 {
-  "name": "custom-excalidraw-hruthik",
-  "version": "1.0.4",
+  "name": "custom-hh-excalidraw",
+  "version": "1.0.0",
   "main": "main.js",
   "types": "types/packages/excalidraw/index.d.ts",
   "files": [
@@ -11,7 +11,7 @@
     "access": "public"
   },
   "description": "Excalidraw as a React component",
-  "repository": "https://github.com/yaralahruthik/excalidraw",
+  "repository": "https://github.com/CustomHH/excalidraw",
   "license": "MIT",
   "keywords": [
     "excalidraw",
